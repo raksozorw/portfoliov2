@@ -1,0 +1,498 @@
+body,
+html,
+div,
+blockquote,
+img,
+label,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+a,
+fieldset,
+input,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+
+body {
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  padding: 0.6em 0;
+  margin: 0 15px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: var(--main-colour);
+  text-decoration: none;
+}
+
+/* Simple reset above */
+
+:root {
+  --main-colour: #ff7373;
+  --secondary-colour: #c4c4c4;
+  --third-colour: #a10101;
+  --fourth-colour: #eebb4d;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  color: rgb(36, 31, 31);
+  background-color: black;
+  /* background-image: linear-gradient(
+    var(--secondary-colour),
+    rgb(204, 209, 255)
+  ); */
+  text-align: center;
+}
+
+.App {
+  background-color: var(--secondary-colour);
+}
+
+/* --------------------- Navbar */
+nav {
+  background-color: black;
+  color: white;
+  padding: 10px 0px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  display: grid;
+}
+
+nav a {
+  margin-left: 10px;
+  color: white;
+}
+
+.intro {
+  padding-top: 150px;
+  font-weight: 300;
+  width: 80%;
+  margin: auto;
+}
+
+.intro h1 {
+  font-weight: 400;
+  font-size: 2rem;
+  animation-name: slideIn;
+  opacity: 0;
+
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.intro h1:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+.intro h1:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+.intro h1:nth-of-type(4) {
+  animation-delay: 0.9s;
+}
+
+.intro h1 a {
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.intro h1 a:hover {
+  color: var(--main-colour);
+}
+
+/* ------------------------------------ Projects */
+
+.projects {
+  margin-top: 300px;
+}
+
+.variable-title {
+  position: sticky;
+  top: 250px;
+  font-size: 7rem;
+  color: var(--main-colour);
+  font-weight: 400;
+  transition: 0.1s;
+  height: 100px;
+  width: 100%;
+}
+
+.variable-title:hover {
+  color: white;
+}
+
+.project {
+  width: 700px;
+  margin: 500px auto;
+  transition: 2s;
+}
+
+.project img {
+  width: 100%;
+  border-radius: 25px;
+}
+
+@media screen and (min-width: 1546px) {
+  .project {
+    width: 1000px;
+    margin: 700px auto;
+  }
+  .variable-title {
+    font-size: 9rem;
+  }
+}
+
+@media screen and (max-width: 1146px) {
+  .variable-title {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 966px) {
+  .variable-title {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .project {
+    width: 75%;
+    margin: 300px auto;
+  }
+  .variable-title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 539px) {
+  .intro {
+    padding-top: 90px;
+  }
+  .variable-title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .project {
+    width: 85%;
+    margin: 500px auto;
+  }
+}
+
+@media only screen and (max-device-width: 380px) and (orientation: landscape) {
+  .variable-title {
+    top: 150px;
+  }
+}
+
+/* ---------------------------------------- Individual Project Page */
+/* unfortunately necessary because of the nav not extending in landscape mode */
+.project-page-background {
+  background-color: var(--secondary-colour);
+}
+
+.project-page {
+  display: grid;
+  padding: 0px 0px 100px 0px;
+  grid-template-rows: 1fr auto auto;
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  animation-name: fadeIn;
+
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.back-bar {
+  padding-top: 50px;
+  text-align: left;
+  margin: 0px 30px;
+  font-size: 3rem;
+  position: sticky;
+  top: 0;
+}
+
+.back-bar a {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.project-page h1 {
+  width: auto;
+  margin: 0px auto;
+  padding: 10px 0px;
+  font-size: 6rem;
+  font-weight: 500;
+  border-bottom: 3px solid white;
+}
+
+.project-page h2 {
+  font-size: 3rem;
+  font-weight: 400;
+  color: white;
+  transition: 0.3s;
+}
+
+.project-page h3 {
+  font-size: 1.2rem;
+  margin: 0px;
+  font-weight: 500;
+}
+
+.project-page p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding-top: 20px;
+  border-top: 1px solid white;
+  line-height: 30px;
+}
+
+.project-page a {
+  cursor: pointer;
+}
+
+.project-page h2:hover {
+  color: var(--main-colour);
+}
+
+.project-page img {
+  width: 80%;
+  border-radius: 25px;
+}
+
+.pp-image-and-links {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  margin: 50px 0px;
+  place-items: center start;
+}
+
+.pp-links {
+  border-left: 1px solid;
+}
+
+.pp-info-columns {
+  margin: 0px auto;
+  padding: 50px 0px;
+  border-top: 1px solid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+}
+
+.pp-info-columns div {
+  margin: 0px 40px;
+}
+
+@media screen and (max-width: 1200px) {
+  .project-page h1 {
+    font-size: 4rem;
+  }
+
+  .project-page h2 {
+    font-size: 2rem;
+  }
+
+  .project-page h3 {
+    font-size: 1rem;
+  }
+  .project-page p {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 850px) {
+  .project-page {
+    width: 90%;
+  }
+
+  .pp-info-columns div {
+    margin: 0px 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .project-page h3 {
+    font-size: 0.9rem;
+  }
+  .project-page p {
+    font-size: 0.8rem;
+  }
+  .pp-info-columns div {
+    margin: 0px 20px;
+  }
+  .back-bar {
+    padding-top: 50px;
+    text-align: left;
+    margin: 0px 10px;
+    font-size: 2rem;
+    position: sticky;
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 539px) {
+  .project-page h1 {
+    font-size: 2.5rem;
+  }
+
+  .project-page img {
+    width: 90%;
+  }
+  .pp-info-columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 30px 0px 100px 0px;
+  }
+  .pp-info-columns div {
+    margin: 10px 0px;
+  }
+}
+
+@media screen and (max-width: 539px) {
+  .project-page h2 {
+    font-size: 1.4rem;
+  }
+}
+/* ------------------------------------------------ Footer */
+.footer {
+  background-color: black;
+  color: white;
+  padding: 100px 0px;
+  width: 100%;
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  place-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+.ft-list {
+  padding: 30px 30px;
+  border-right: 1px solid;
+}
+.ft-content-right {
+}
+
+.ft-content-right p {
+  width: 90%;
+  margin: auto;
+  text-align: left;
+  font-weight: 300;
+  line-height: 22px;
+  animation-name: fadeIn;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.footer-content h3 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.footer-content h4 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  animation-name: fadeIn;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@media screen and (max-width: 650px) {
+  .footer-content {
+    width: 100%;
+  }
+  .footer-content h3 {
+    font-size: 2rem;
+  }
+  .footer-content p {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .ft-list {
+    padding: 30px 10px;
+  }
+  .footer-content h4 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footer-content h3 {
+    font-size: 1.1rem;
+  }
+  .footer-content p {
+    font-size: 0.6rem;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(30px, 0px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(0px, 30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
