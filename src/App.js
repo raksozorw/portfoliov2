@@ -7,6 +7,7 @@ import ProjectPage from "./components/ProjectPage";
 import Main from "./components/Main";
 import ScrollToTop from "./ScrollToTop";
 import Footer from "./components/Footer";
+import PatchPlants from "./components/PatchPlants";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Main} />
           <Route path='/project/:id' exact component={ProjectPage} />
+          <Route path='/patchplants' exact component={PatchPlants} />
         </Switch>
         <Footer />
       </Router>

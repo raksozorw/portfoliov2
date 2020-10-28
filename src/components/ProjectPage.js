@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import projectList from "../assets/projectList";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 export default function ProjectPage() {
+  const [selectedProjectId, setSelectedProjectId] = useState(0);
   //we take the id out of the params to choose which project to display based on index (same as param)
   const { id } = useParams();
   // converted from string to number... not really sure why I made it a string
@@ -11,11 +12,19 @@ export default function ProjectPage() {
 
   const nextProject = () => {
     if (numberId < projectList.length - 1) {
-      return numberId + 1;
+      setSelectedProjectId(numberId + 1);
     } else {
-      return 0;
+      setSelectedProjectId(0);
     }
   };
+
+  const renderTitle = () => {
+    return <h1>{project.name}</h1>;
+  };
+
+  useEffect(() => {
+    nextProject();
+  }, [id]);
 
   const project = projectList[id];
   console.log(id);
@@ -24,7 +33,7 @@ export default function ProjectPage() {
     <div className='project-page-background'>
       <div className='back-bar'>
         <Link to='/'>x</Link>
-        <Link style={{ float: "right" }} to={`/project/${nextProject()}`}>
+        <Link id='next-project-link' to={`/project/${selectedProjectId}`}>
           ➔
         </Link>
       </div>

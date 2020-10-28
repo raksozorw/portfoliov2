@@ -14,19 +14,18 @@ export default function Project(props) {
     visible && ctx.setProject(props.project);
   }, [visible]);
 
-  // not sure if this is the best way to do this
-  // when the div is clicked to go to the project, the project state is changed in context to show the desired project
-  // const directToProject = () => {
-  //   ctx.setProject(props.project);
-  // };
-
-  // visible && directToProject();
+  // the ref div that's rendered is an adjustable reference point to choose when to change the variable title
+  // it is tranform tranlated up using css media queries to function best for each screen
+  // laptop and large screens aim to transition when about half of the new project image is on the screen
+  // tablets aim to change when 100px below the image is visible
+  // small devices change when the bottom of the image enters (div is not translated at all)
 
   return (
     <div className='project' id={props.project.key}>
       <Link to={`/project/${props.index}`}>
         <img src={props.project.img} alt={props.project.name}></img>
-        <div ref={setRef}></div>
+
+        <div className='ref-div' ref={setRef}></div>
       </Link>
     </div>
   );

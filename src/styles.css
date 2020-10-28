@@ -86,11 +86,11 @@ body {
 /* --------------------- Navbar */
 nav {
   background-color: black;
-  color: white;
+  color: var(--main-colour);
   padding: 10px 0px;
   text-align: left;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -99,7 +99,7 @@ nav {
 
 nav a {
   margin-left: 10px;
-  color: white;
+  color: var(--main-colour);
 }
 
 .intro {
@@ -151,14 +151,23 @@ nav a {
   top: 250px;
   font-size: 7rem;
   color: var(--main-colour);
-  font-weight: 400;
+  font-weight: 700;
   transition: 0.1s;
   height: 100px;
   width: 100%;
+  animation-name: fadeIn;
+  opacity: 0;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .variable-title:hover {
   color: white;
+}
+
+.ref-div {
+  transform: translateY(-200px);
 }
 
 .project {
@@ -173,6 +182,16 @@ nav a {
 }
 
 @media screen and (min-width: 1546px) {
+  .variable-title {
+    position: sticky;
+    top: 320px;
+  }
+  .ref-div {
+    transform: translateY(-300px);
+  }
+  .intro {
+    padding-top: 225px;
+  }
   .project {
     width: 1000px;
     margin: 700px auto;
@@ -185,6 +204,9 @@ nav a {
 @media screen and (max-width: 1146px) {
   .variable-title {
     font-size: 6rem;
+  }
+  .ref-div {
+    transform: translateY(120px);
   }
 }
 
@@ -239,11 +261,6 @@ nav a {
   width: 80%;
   margin: auto;
   text-align: left;
-  animation-name: fadeIn;
-
-  opacity: 0;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
 }
 
 .back-bar {
@@ -255,19 +272,31 @@ nav a {
   top: 0;
 }
 
+#next-project-link {
+  float: right;
+  margin-right: 10px;
+}
+
 .back-bar a {
   color: white;
   margin: 0;
   padding: 0;
+  z-index: 2;
 }
 
 .project-page h1 {
+  z-index: 0;
   width: auto;
   margin: 0px auto;
   padding: 10px 0px;
   font-size: 6rem;
   font-weight: 500;
   border-bottom: 3px solid white;
+  animation-name: fadeIn;
+
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .project-page h2 {
@@ -275,6 +304,21 @@ nav a {
   font-weight: 400;
   color: white;
   transition: 0.3s;
+}
+
+.project-page a h2:nth-of-type(1) {
+  animation-name: slideIn;
+  animation-delay: 0.2s;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.project-page a h2:nth-of-type(2) {
+  animation-name: slideIn;
+  animation-delay: 0.4s;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .project-page h3 {
@@ -302,6 +346,11 @@ nav a {
 .project-page img {
   width: 80%;
   border-radius: 25px;
+  animation-name: fadeIn;
+  animation-delay: 0.3s;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .pp-image-and-links {
@@ -326,6 +375,28 @@ nav a {
 
 .pp-info-columns div {
   margin: 0px 40px;
+}
+
+.pp-info-columns div:nth-of-type(1) {
+  animation-name: fadeIn;
+  animation-delay: 0.4s;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.pp-info-columns div:nth-of-type(2) {
+  animation-name: fadeIn;
+  animation-delay: 0.5s;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.pp-info-columns div:nth-of-type(3) {
+  animation-name: fadeIn;
+  animation-delay: 0.6s;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 @media screen and (max-width: 1200px) {
@@ -400,10 +471,11 @@ nav a {
 .footer {
   background-color: black;
   color: white;
-  padding: 100px 0px;
   width: 100%;
 }
 .footer-content {
+  padding: 100px 0px;
+
   display: grid;
   grid-template-columns: 1fr 2fr;
   place-items: center;
@@ -414,8 +486,6 @@ nav a {
 .ft-list {
   padding: 30px 30px;
   border-right: 1px solid;
-}
-.ft-content-right {
 }
 
 .ft-content-right p {
@@ -446,15 +516,71 @@ nav a {
   animation-fill-mode: forwards;
 }
 
-@media screen and (max-width: 650px) {
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0 20px;
+  text-align: left;
+  animation-name: fadeIn;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.skills h5 {
+  margin: 0;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.skills li {
+  margin: 5px 0;
+}
+
+.copyrights {
+  font-weight: 200;
+  font-size: 0.5rem;
+  padding: 0px 0px 20px 0px;
+}
+
+@media screen and (max-width: 1000px) {
   .footer-content {
     width: 100%;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .skills {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-left: 30px;
+    gap: 20px 20px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .footer-content {
+    height: 300px;
+    place-items: start;
   }
   .footer-content h3 {
     font-size: 2rem;
   }
+  .footer-content h4 {
+    margin-top: 70px;
+  }
   .footer-content p {
     font-size: 0.7rem;
+  }
+  .skills h5 {
+    font-size: 1rem;
+  }
+
+  .skills li {
+    margin: 5px 0;
+    font-size: 0.8rem;
   }
 }
 @media screen and (max-width: 500px) {
@@ -472,6 +598,70 @@ nav a {
   }
   .footer-content p {
     font-size: 0.6rem;
+  }
+  .skills h5 {
+    font-size: 0.9rem;
+  }
+
+  .skills li {
+    margin: 5px 0;
+    font-size: 0.7rem;
+  }
+}
+
+/* PATCH PLANTS ONLY */
+
+.patch {
+  padding: 50px 0px;
+  display: grid;
+  place-items: center;
+  background-position: center;
+  background-size: cover;
+}
+
+.patch h1 {
+  font-size: 4rem;
+  font-weight: 500;
+  animation-name: fadeIn;
+  opacity: 0;
+
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.patch h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  animation-name: fadeIn;
+  opacity: 0;
+  animation-delay: 0.4s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.patch img {
+  width: 500px;
+  max-width: 90%;
+  border-radius: 25px;
+  border: 5px solid white;
+  animation-name: fadeIn;
+  opacity: 0;
+  animation-delay: 0.2s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.patch a {
+  animation-name: slideIn;
+  opacity: 0;
+  animation-delay: 0.8s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@media screen and (max-width: 400px) {
+  .patch h1 {
+    font-size: 3rem;
   }
 }
 

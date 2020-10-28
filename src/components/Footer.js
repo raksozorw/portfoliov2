@@ -1,26 +1,40 @@
 import React, { useState } from "react";
+import Skills from "./Skills";
 
 export default function Footer() {
-  const [content, setContent] = useState("about");
+  const [content, setContent] = useState("skills");
   // page toggles between the about or contact, defaults about
 
-  const handleClick = () => {
-    if (content === "about") {
-      setContent("contact");
-    } else {
-      setContent("about");
-    }
+  const handleClick = (entry) => {
+    setContent(entry);
   };
 
   return (
     <div className='footer' id='footer'>
       <div className='footer-content'>
         <div className='ft-list'>
-          <h3 onClick={handleClick}>About</h3>
-          <h3 onClick={handleClick}>Contact</h3>
+          <h3
+            onClick={() => handleClick("skills")}
+            style={content === "skills" ? { color: "#ff7373" } : {}}
+          >
+            Skills
+          </h3>
+          <h3
+            onClick={() => handleClick("about")}
+            style={content === "about" ? { color: "#ff7373" } : {}}
+          >
+            About
+          </h3>
+          <h3
+            onClick={() => handleClick("contact")}
+            style={content === "contact" ? { color: "#ff7373" } : {}}
+          >
+            Contact
+          </h3>
         </div>
         <div className='ft-content-right'>
-          {content === "about" ? (
+          {content === "skills" && <Skills />}
+          {content === "about" && (
             <div>
               <p>
                 I'm a self taught developer from Vancouver, BC. I fell in love
@@ -31,7 +45,9 @@ export default function Footer() {
                 camera shutter, learning a foreign language, or petting a cat.
               </p>
             </div>
-          ) : (
+          )}
+
+          {content === "contact" && (
             <div>
               <a href='mailto:oskarwroz@gmail.com'>
                 <h4>oskarwroz@gmail.com</h4>
@@ -40,6 +56,7 @@ export default function Footer() {
           )}
         </div>
       </div>
+      <div className='copyrights'>Oskar Wroz 2020. All Rights Reserved.</div>
     </div>
   );
 }

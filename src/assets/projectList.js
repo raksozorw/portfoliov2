@@ -1,6 +1,6 @@
 const projectList = [
   {
-    name: "Print E-Comm Store",
+    name: "Prints E-Commerce",
     description:
       "Full stack e-commerce store selling travel photo prints. Built from scratch cart and shop interface, checkout powered by Stripe.",
     img: require("/Users/oskarwroz/Documents/WebDev-Projects/portfoliov2/portfoliov2/src/assets/projectImages/print.jpeg"),
@@ -43,7 +43,7 @@ const projectList = [
       "Personal site for client, advertises music production services. Clean, fully functional, and launched. Utilizes Firebase for database and contact form.",
     img: require("/Users/oskarwroz/Documents/WebDev-Projects/portfoliov2/portfoliov2/src/assets/projectImages/tim.jpeg"),
     github: "https://github.com/raksozorw/creviston-recording",
-    site: "https://tim-site-282017.web.app/",
+    site: "https://timcreviston.com",
 
     key: "3",
     stack: "React, Firebase, Bootstrap",
